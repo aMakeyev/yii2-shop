@@ -7,6 +7,7 @@
  */
 
 namespace frontend\controllers;
+
 use frontend\models\Category;
 use frontend\models\Product;
 use Yii;

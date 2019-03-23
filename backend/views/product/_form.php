@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
+use yii\widgets\DetailView;
+
 mihaildev\elfinder\Assets::noConflict($this);
 
 ?>
@@ -35,8 +37,23 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image')->fileInput() ?>
+	<?php $img = $model->getImage();?>
+	<?= "<img src='{$img->getUrl('x85')}'>" ?>
 
+    <?= $form->field($model, 'image')->fileInput() ?>
+	<?php $imgs = $model->getImages();
+	foreach($imgs as $img){
+		echo "<div class='text-center float-left''><img src='{$img->getUrl('x85')}'><br>";
+		//echo Html::input('checkbox',['name' => 'delimg'],['value' => $img->id]);
+		//$form->field($model, 'hit')->checkbox([ '0', $img->id]);
+		echo Html::a('Удалить', ['deleteimage', 'id' => $model->id, 'imgId' => $img->id], [
+			'class' => 'text-danger',
+			'data' => [
+				'method' => 'post',
+			],
+		]) . '</div>';
+	}?>
+	<?= '<div class="clearfix"></div>';?>
     <?= $form->field($model, 'gallery[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
     <?= $form->field($model, 'hit')->checkbox([ '0', '1', ]) ?>

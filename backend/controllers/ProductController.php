@@ -136,7 +136,16 @@ class ProductController extends AppAdminController
 
         return $this->redirect(['index']);
     }
-
+	public function actionDeleteimage($id, $imgId)
+	{
+		$model = $this->findModel($id);
+		$imgs = $model->getImages();
+		foreach($imgs as $img) {
+			if($img->id == $imgId )
+				$model->removeImage($img);
+		}
+		return $this->redirect(['update', 'id' => $id]);
+	}
 	public function actionSearch() {
 		$q = trim(Yii::$app->request->get('q'));
 		if(!$q)

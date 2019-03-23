@@ -2559,3 +2559,8 @@ h2.title {
 }
 
 
+/*customs*/
+
+.float-left{
+  float:left;
+}

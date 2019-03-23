@@ -79,7 +79,7 @@ class Product extends ActiveRecord
             'price' => 'Цена',
             'keywords' => 'Ключевые слова',
             'description' => 'Мета-описание',
-            'image' => 'Фото',
+            'image' => 'Главное фото',
             'gallery' => 'Галерея',
             'hit' => 'Хит',
             'new' => 'Новинка',

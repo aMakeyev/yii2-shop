@@ -24,6 +24,7 @@ ltAppAsset::register($this);
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?= Html::csrfMetaTags() ?>
 	<title>Админка | <?= Html::encode($this->title) ?></title>
+	<link rel="shortcut icon" href="/favicon.ico">
 	<?php $this->head() ?>
 
     <link rel="shortcut icon" href="/favicon.ico">
